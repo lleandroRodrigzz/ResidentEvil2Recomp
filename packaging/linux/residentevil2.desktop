@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=ResidentEvil2
+Exec=ResidentEvil2_Recompiled
+Icon=residentevil2
+Categories=Game;
+Terminal=false

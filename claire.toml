@@ -1,0 +1,57 @@
+# Autofilled by tools/new_project_layout/probe_disc.py from your legal dump.
+# Review before shipping. Runtime quirks / overlay seeds still need hand work.
+
+[game]
+name = "ResidentEvil2"
+id = "SLUS-00756"
+players = 1
+exe = "disc/SLUS_007.56"
+disc = "C:/Jogos/Resident Evil 2/Resident Evil 2 - Dual Shock Ver. (USA) (Disc 2).cue"
+discs = ["C:/Jogos/Resident Evil 2/Resident Evil 2 - Dual Shock Ver. (USA) (Disc 1).cue", "C:/Jogos/Resident Evil 2/Resident Evil 2 - Dual Shock Ver. (USA) (Disc 2).cue"]
+disc_serials = ["SLUS-00748", "SLUS-00756"]
+program_discs = [2]
+load_address = "0x80010000"
+entry_pc = "0x800783C0"
+text_size = "0x000F0800"
+stack_base = "0x801FFFF0"
+
+# Digests are for data Track 01 (first BINARY FILE / TRACK 01).
+[prepare_disc]
+out_dir = "disc"
+bin_name = "Resident Evil 2 - Dual Shock Ver. (USA) (Disc 2).bin"
+cue_name = "Resident Evil 2 - Dual Shock Ver. (USA) (Disc 2).cue"
+boot_exe = "SLUS_007.56"
+known_sizes = [708323616]
+known_md5 = [
+  "2b553b5ab803dd7537db69a659670918",
+]
+known_sha1 = [
+  "17e2d141cb4c359c93fe64902660bc5902e8828a",
+]
+known_crc32 = [
+  "706aa182",
+]
+
+[recompiler]
+seeds = "seeds/ghidra_funcs_claire.txt"
+out_dir = "generated_claire"
+strict = true
+
+[runtime]
+window_title = "Resident Evil 2 - Claire"
+memcard_dir = "saves"
+overlay_cache = true
+
+[video]
+renderer = "opengl"
+aspect_ratio = "4:3"
+
+[controller]
+default_mode = "digital"
+
+# Online mount gate: digests + track count + optional TOC fingerprint
+# (see docs/NETPLAY.md).
+[netplay]
+require_cue = true
+required_tracks = 1
+required_disc_fp = "c9ffa9abb60049573b2e09f027344b731004834972957da06b880d65b1e8d6bb"

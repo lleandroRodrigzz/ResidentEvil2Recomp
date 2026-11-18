@@ -1,0 +1,57 @@
+# Autofilled by tools/new_project_layout/probe_disc.py from your legal dump.
+# Review before shipping. Runtime quirks / overlay seeds still need hand work.
+
+[game]
+name = "ResidentEvil2"
+id = "SLUS-00748"
+players = 1
+exe = "disc/SLUS_007.48"
+disc = "C:/Jogos/Resident Evil 2/Resident Evil 2 - Dual Shock Ver. (USA) (Disc 1).cue"
+discs = ["C:/Jogos/Resident Evil 2/Resident Evil 2 - Dual Shock Ver. (USA) (Disc 1).cue", "C:/Jogos/Resident Evil 2/Resident Evil 2 - Dual Shock Ver. (USA) (Disc 2).cue"]
+disc_serials = ["SLUS-00748", "SLUS-00756"]
+program_discs = [1]
+load_address = "0x80010000"
+entry_pc = "0x80078408"
+text_size = "0x000F0800"
+stack_base = "0x801FFFF0"
+
+# Digests are for data Track 01 (first BINARY FILE / TRACK 01).
+[prepare_disc]
+out_dir = "disc"
+bin_name = "Resident Evil 2 - Dual Shock Ver. (USA) (Disc 1).bin"
+cue_name = "Resident Evil 2 - Dual Shock Ver. (USA) (Disc 1).cue"
+boot_exe = "SLUS_007.48"
+known_sizes = [668960544]
+known_md5 = [
+  "36e01a667aadce56fe4b66672272e8b6",
+]
+known_sha1 = [
+  "aa8206cf4a0a585424899e186e0318aeb984a1eb",
+]
+known_crc32 = [
+  "0e749c2f",
+]
+
+[recompiler]
+seeds = "seeds/ghidra_funcs.txt"
+out_dir = "generated"
+strict = true
+
+[runtime]
+window_title = "Resident Evil 2 - Leon"
+memcard_dir = "saves"
+overlay_cache = true
+
+[video]
+renderer = "opengl"
+aspect_ratio = "4:3"
+
+[controller]
+default_mode = "digital"
+
+# Online mount gate: digests + track count + optional TOC fingerprint
+# (see docs/NETPLAY.md).
+[netplay]
+require_cue = true
+required_tracks = 1
+required_disc_fp = "7779d76ab9b4e54992a797e89fc6f7e5e4a4c796b8f3e7dd3720c86efa81d88f"
